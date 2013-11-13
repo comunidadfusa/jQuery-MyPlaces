@@ -11,10 +11,19 @@ It allows:
 
 ##Requirements
 * jQuery v. 1.10+
-* JsRender
+* JsRender (http://www.jsviews.com/)
+* Google Maps API (v.3)
 
 
 ## Getting Started
+
+First of all include dependencies:
+
+```html
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places,geometry&amp;sensor=false"></script>
+<script type="text/javascript" src="/js/lib/jsrender/jsrender.min.js"></script>
+```
 
 Include the minified plugin JS file:
 
@@ -37,17 +46,52 @@ Or include all the plugin JS files:
 
 
 
-Add the CSS file (or append contents to your own stylesheet):
+Copy the CSS file from public_html\example\css\myplaces.css into your project and add it (or append contents to your own stylesheet):
 
 ```html
 <link href="../css/myplaces.css" type="text/css" rel="stylesheet">
 ```
+
+Copy the folder public_html\example\img into the same folder of myplaces.css
+
 
 Add the container:
 ```html
   <div class="container">
   </div>
 ```
+
+Add default templates:
+```html
+<script id="placeInfoTemplate" type="text/x-jsrender">
+    <h3>Name:</h3>
+    <p>{{:name}}</p>
+    <h3>Activities:</h3>
+    <ul>
+    {{for tags}}
+    <li>{{:#data}}</li>
+    {{/for}}
+    </ul>
+    <h3>{{:state}}</h3>
+    <p>{{:longDescription}}</p>
+    <div class="myplaces-placeEmail">
+    <h3>Address:</h3>
+    <p>{{:address}}</p>
+    </div>
+</script>
+
+
+<script id="infowindowTemplate" type="text/x-jsrender">
+    <div class="myplaces-info">
+    <strong> 
+    {{:name}}
+    </strong>
+    <br> 
+    {{:address}}
+    </div>
+</script>
+```
+
 To initialize:
 
 ```javascript
@@ -76,7 +120,12 @@ var places = [
 
 
 // default
-$('.container').myplaces({places: places});
+$('.container').myplaces({
+    places: places,
+    placeListTemplate: '<li><h1>{{:name}}</h1><h3>{{:address}}</h3><h5>{{:state}}</h5><p>{{:shortDescription}}</p></li>',
+    placeInfoTemplate: '#placeInfoTemplate',
+    popUpMapTemplate: '#infowindowTemplate'
+});
 
 // or with custom settings
 $('.container').myplaces({

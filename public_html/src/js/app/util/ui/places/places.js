@@ -15,13 +15,13 @@ somospnt.util.ui.places = (function() {
     var placeClass = "myplaces-place-";
     var placesChangeCallback, clickPlaceCallback;
 
-    function init(listTemplate, infoTemplate, placesChange, clickPlace) {
+    function init(listTemplate, infoTemplate, placesChange, clickPlace, infoResultsText) {
         placeListTemplate = $.templates(listTemplate);
         placeInfoTemplate = $.templates(infoTemplate);
         placesChangeCallback = placesChange;
         clickPlaceCallback = clickPlace;
         $('.myplaces-placesList ul').on('click', 'li', showInformationOfPlace);
-        $('.myplaces-infoContenido').append('<p class="myplaces-info-results">To see the details of a place please click on it.</p>');
+        $('.myplaces-infoContenido').append('<p class="myplaces-info-results">'+infoResultsText+'</p>');
     }
 
 

@@ -141,14 +141,16 @@ $('.container').myplaces({
 
 | Key            | Default       | Values                     |  Description                                     |
 | ---------------|:-------------:|---------------------------:|-------------------------------------------------:|
-| places            | `[]`                                                           | Array                   |                                                                              |
-| country           | `AR`                                                           | ISO 3166-1 country code | Two letter ISO 3166-1 country code used for suggest adress in the search bar |
-| placeListTemplate | `<li>Enter a template for the list of places</li>`             | String                  | Template or its id to render the locations list with jsRender                |
-| placeInfoTemplate | `<div>Enter a template for the information of the place</div>` | String                  | Template or its id to render the selected location detail with jsRender      |
-| popUpMapTemplate  | `<div>Enter a template for the pop-up of the place</div>`      | String                  | Template or its id to render the selected location tooltip in the map with jsRender |
-| onLoad            |                                                                | function                | Callback function, which is called when the map has been loaded |
-| onPlacesChange    |                                                                | function                | Callback function, which is called when the locations list change|
-| onClickPlace      |                                                                | function                | Callback function, which is called when click in a place |
+| places            | `[]`                                                           | Array                   |                                                                                      |
+| country           | `AR`                                                           | ISO 3166-1 country code | Two letter ISO 3166-1 country code used for suggest adress in the search bar         |
+| placeListTemplate | `<li>Enter a template for the list of places</li>`             | String                  | Template or its id to render the locations list with jsRender                        |
+| placeInfoTemplate | `<div>Enter a template for the information of the place</div>` | String                  | Template or its id to render the selected location detail with jsRender              |
+| popUpMapTemplate  | `<div>Enter a template for the pop-up of the place</div>`      | String                  | Template or its id to render the selected location tooltip in the map with jsRender  |
+| onLoad            |                                                                | function                | Callback function, which is called when the map has been loaded                      |
+| onPlacesChange    |                                                                | function                | Callback function, which is called when the locations list change                    |
+| onClickPlace      |                                                                | function                | Callback function, which is called when click in a place                             |
+| searchButtonText  | `Search`                                                       | String                  | Text for Search button                                                               |
+| infoResultsText   | `To see the details of a place please click on it.`            | String                  | Information text how to display more information about a place                       |
 
 
 ### Required attributes of places key

@@ -22,6 +22,8 @@
                 placeListTemplate: '<li>Enter a template for the list of places</li>',
                 placeInfoTemplate: '<div>Enter a template for the information of the place</div>',
                 popUpMapTemplate: '<div>Enter a template for the pop-up of the place</div>',
+                searchButtonText: 'Search',
+                infoResultsText: 'To see the details of a place please click on it.',
                 onLoad: function() {
                 },
                 onPlacesChange: function() {
@@ -34,10 +36,10 @@
 
             $(these).append("<div class='myplaces-spinner'></div>");
 
-            var locaHtml = '<div class="myplaces-searcher"><input class="myplaces-searcher-input" type="text" /><ul><li class="myplaces-buscar">Search</li></ul></div><ul class="myplaces-categories"></ul><div class="myplaces-places"><div class="myplaces-placesList"><ul></ul></div><div class="myplaces-placeInfo"><div class="myplaces-infoContenido"></div></div></div><div class="myplaces-map"></div>';
+            var locaHtml = '<div class="myplaces-searcher"><input class="myplaces-searcher-input" type="text" /><ul><li class="myplaces-buscar">'+options.searchButtonText+'</li></ul></div><ul class="myplaces-categories"></ul><div class="myplaces-places"><div class="myplaces-placesList"><ul></ul></div><div class="myplaces-placeInfo"><div class="myplaces-infoContenido"></div></div></div><div class="myplaces-map"></div>';
             $(these).append(locaHtml);
 
-            somospnt.util.ui.places.init(options.placeListTemplate, options.placeInfoTemplate, options.onPlacesChange, options.onClickPlace);
+            somospnt.util.ui.places.init(options.placeListTemplate, options.placeInfoTemplate, options.onPlacesChange, options.onClickPlace, options.infoResultsText);
             somospnt.util.ui.map.init(options.places, options.popUpMapTemplate);
             somospnt.util.ui.searcher.init(options.country);
             somospnt.util.ui.filter.init(options.places);
